@@ -1,16 +1,16 @@
 [
   {
-    "repository": "ValidusOs-Devices/device_motorola_sanders",
+    "repository": "orangutan/device_motorola_sanders",
     "target_path": "device/motorola/sanders",
     "branch": "8.1"
   },
   {
-    "repository": "BigTopKrazies/vendor_motorola_sanders",
+    "repository": "orangutan/vendor_motorola_sanders",
     "target_path": "vendor/motorola/sanders",
     "branch": "8.1"
   },
   {
-    "repository": "GZR-Kernels/kernel_motorola_msm8953_sanders",
+    "repository": "orangutan/kernel_motorola_msm8953_sanders",
     "target_path": "kernel/motorola/msm8953",
     "branch": "8.1-ods"
   },
