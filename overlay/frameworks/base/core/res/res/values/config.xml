@@ -254,7 +254,11 @@
     <integer name="config_defaultNotificationLedOff">5000</integer>
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <!--<bool name="config_intrusiveBatteryLed">true</bool>-->
+
+    <!-- commenting out for now, compile issues -->
+    <!--
+    <bool name="config_intrusiveBatteryLed">true</bool>
+    -->
 
     <!-- Default color for notification LED is white. -->
     <color name="config_defaultNotificationColor">#ff0000ff</color>
@@ -266,11 +270,19 @@
 
     <!-- Does the battery LED support multiple colors?
          Used to decide if the user can change the colors -->
-    <!--<bool name="config_multiColorBatteryLed">true</bool>-->
+
+    <!-- commenting out for now, compile issues -->
+    <!--
+    <bool name="config_multiColorBatteryLed">true</bool>
+    -->
 
     <!-- Do the battery/notification LEDs support pulsing?
          Used to decide if we show pulse settings -->
-    <!--<bool name="config_ledCanPulse">true</bool>-->
+
+    <!-- commenting out for now, compile issues -->
+    <!--
+    <bool name="config_ledCanPulse">true</bool>
+    -->
 
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
@@ -389,9 +401,13 @@
     <!-- Default value for proximity check on screen wake
          NOTE ! - Enable for devices that have a fast response
          proximity sensor (ideally < 300ms) -->
+
+    <!-- commenting out for now, compile issues -->
+    <!--
     <bool name="config_proximityCheckOnWake">true</bool>
     <integer name="config_proximityCheckTimeout">100</integer>
     <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
+    -->
 
     <!-- Should proximity check also affect fingerprint reader
     <bool name="config_proximityCheckOnFingerprintWake">true</bool>-->
@@ -399,11 +415,22 @@
     <!-- Whether notify fingerprint client of successful cancelled authentication
     <bool name="config_notifyClientOnFingerprintCancelSuccess">true</bool>-->
 
+
+    <!-- commenting out for now, compile issues -->
+    <!--
+    <add-resource type="string" name="config_deviceKeyHandlerLib"/>
+    <add-resource type="string" name="config_deviceKeyHandlerClass"/>
+    -->
+
     <!-- Paths to the libraries that contain device specific key handlers -->
+    <!--
     <string name="config_deviceKeyHandlerLib" translatable="false">/system/priv-app/MotoActions/MotoActions.apk</string>
+    -->
 
     <!-- Names of the key handler classes -->
+    <!--
     <string name="config_deviceKeyHandlerClass" translatable="false">com.moto.actions.KeyHandler</string>
+    -->
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
