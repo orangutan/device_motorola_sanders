@@ -40,5 +40,12 @@ PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="Moto G5S Plus"
 
+BUILD_SECURE := true
+PRODUCT_DEFAULT_DEV_CERTIFICATE := $(HOME)/.android-certs/releasekey
+PRODUCT_OTA_PUBLIC_KEYS := $(HOME)/.android-certs/otakey.x509.pem
+# this probably needs to goto build/target/product/verity.mk
+# see http://blog.andrsec.com/android/2016/03/26/android-verified-boot.html
+# PRODUCT_VERITY_SIGNING_KEY := $(HOME)/.android-certs/verity
+
 # for specific
 $(call inherit-product, vendor/motorola/sanders/sanders-vendor.mk)
