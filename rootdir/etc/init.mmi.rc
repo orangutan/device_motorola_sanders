@@ -5,6 +5,9 @@ on early-boot
     write /sys/module/subsystem_restart/parameters/disable_restart_work 0x0
     write /proc/sys/kernel/poweroff_cmd "/system/bin/reboot -p"
 
+    # Update dm-verity state and set partition.*.verified properties
+    # verity_update_state
+
 on init
     chown system log /sys/fs/pstore/console-ramoops-0
     chmod 0440 /sys/fs/pstore/console-ramoops-0
@@ -17,9 +20,21 @@ on init
     chown root diag /sys/kernel/dropbox/event
     chown root diag /sys/kernel/dropbox/data
 
+    # Load persistent dm-verity state
+    verity_load_state
+
 on fs
     # use /persist as phony PDS partition
     symlink /persist /pds
+
+    # Adjust parameters for dm-verity device
+    write /sys/block/dm-0/queue/read_ahead_kb 2048
+
+    # Update dm-verity state and set partition.*.verified properties
+    verity_update_state
+
+# on verity-logging
+    exec u:r:slideshow:s0 -- /sbin/slideshow warning/verity_red_1 warning/verity_red_2
 
 on post-fs
     mkdir /persist/camera 0755 oem_5004 oem_5004
@@ -71,6 +86,11 @@ on post-fs
     chmod 0771 /persist/rfs/msm/mpss/mot_rfs
 
     write /proc/sys/vm/page-cluster 0
+
+    # Set dm-verity property for system partition
+    # verity_update_state
+
+
 
 on post-fs-data
     #setup folder for WLAN WAPI
