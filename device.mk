@@ -431,4 +431,19 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
+# setup dm-verity configs.
+PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
+$(call inherit-product, build/target/product/verity.mk)
+PRODUCT_PACKAGES += \
+    slideshow \
+    verity_warning_images
+
+#BOARD_AVB_ENABLE := true
+#BOARD_AVB_ALGORITHM := SHA512_RSA4096
+#BOARD_AVB_KEY_PATH := external/avb/test/data/rsa_key_4096bits.pem
+
+
+PRODUCT_COPY_FILES += device/motorola/sanders/twrp.fstab:recovery/root/etc/twrp.fstab
+PRODUCT_COPY_FILES += device/motorola/sanders/rootdir/etc/fstab.qcom:recovery/root/fstab.qcom
+
 PRODUCT_VENDOR_KERNEL_HEADERS := hardware/qcom/msm8996/kernel-headers
