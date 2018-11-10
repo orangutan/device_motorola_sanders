@@ -431,6 +431,11 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
+PRODUCT_COPY_FILES += \
+	device/motorola/sanders/bin/fzsetup:system/bin/fzsetup \
+	device/motorola/sanders/rootdir/etc/fz.rc:system/etc/init/fz.rc
+
+
 # setup dm-verity configs.
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
 $(call inherit-product, build/target/product/verity.mk)
@@ -440,7 +445,7 @@ PRODUCT_PACKAGES += \
 
 #BOARD_AVB_ENABLE := true
 #BOARD_AVB_ALGORITHM := SHA512_RSA4096
-#BOARD_AVB_KEY_PATH := external/avb/test/data/rsa_key_4096bits.pem
+#BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 
 
 PRODUCT_COPY_FILES += device/motorola/sanders/twrp.fstab:recovery/root/etc/twrp.fstab

@@ -231,39 +231,4 @@ WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_P2P          := "p2p"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 
-ALLOW_MISSING_DEPENDENCIES=true
-
-
-# twrp recovery
-# arm has neon instructions
-BOARD_HAS_NO_REAL_SDCARD := true
-RECOVERY_SDCARD_ON_DATA := true
-RECOVERY_VARIANT := twrp
-TARGET_RECOVERY_INITRC := device/motorola/sanders/rootdir/init.twrp.rc 
-# auto copy files placed in device/VENDOR/DEVICENAME/recovery/root inside
-# recovery ramdisk (e.g. init.recivery*.rc)
-TARGET_RECOVERY_DEVICE_DIRS += device/motorola/sanders
-TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
-TW_DEFAULT_BRIGHTNESS := 150
-TW_EXCLUDE_MTP := true
-TW_EXCLUDE_SUPERSU := true
-TW_HAS_NO_BOOT_PARTITION := true
-#TWHAVE_SELINUX := true
-TW_INCLUDE_CRYPTO := true
-TW_MAX_BRIGHTNESS := 255
-TW_NO_REBOOT_BOOTLOADER := true
-TW_NO_SCREEN_TIMEOUT := true
-TW_OEM_BUILD := true
-TWRP_INCLUDE_LOGCAT := true
-TW_THEME := portrait_hdpi
-# if no busybox, we dont
-TW_USE_TOOLBOX := true
-
-# don't include default init.recovery.usb.rc, provide your own
-# or use needed defines inside init.recovery.$DEVICE.rc
-#TW_EXCLUDE_DEFAULT_USB_INIT := true
- 
-# helps with compilation, minui errors
-TW_NEW_ION_HEAP := true
-
+ALLOW_MISSING_DEPENDENCIES := true
